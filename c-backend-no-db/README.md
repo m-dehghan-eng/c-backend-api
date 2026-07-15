@@ -1,28 +1,301 @@
-# Welcome to your new application
+# weapi - Lightweight REST API Backend in C
 
-Please fill in this README file with relevant information for your application.
+[![Language](https://img.shields.io/badge/Language-C-blue.svg)](#)
+[![Framework](https://img.shields.io/badge/Framework-facil.io-green.svg)](https://facil.io/)
+[![Platform](https://img.shields.io/badge/Platform-Linux%20%7C%20WSL-orange.svg)](#)
 
-To learn more about using the [facil.io framework](http://facil.io), please read through the comments in the source code or the guides on the framework's website.
+A lightweight RESTful backend API developed in **C programming language** using the **facil.io framework**.
 
-Good luck!
+The project implements a simple user management backend with HTTP routing, JSON-based responses, CRUD operations, and thread-safe data handling.
 
-## What you're starting with
+This project was developed to explore backend development concepts, low-level network programming, HTTP servers, and system programming in C.
 
-This folder contains the library code, some boilerplate application code, a complex (yet very helpful) `makefile` and some helper scripts.
+---
 
-### Temporary boilerplate application
+# 📌 Project Overview
 
-The boilerplate code, which is a basic "Hello World!" HTTP application resides in the `src` folder.
+Modern backend systems are commonly built using high-level frameworks, but implementing server-side applications in C provides deeper understanding of:
 
-If you wish to rename the folder, make sure to update the `MAIN_ROOT` in the  `makefile`.
+- HTTP communication
+- Server architecture
+- Memory management
+- Data structures
+- Thread synchronization
+- Low-level programming concepts
 
-It's also possible to use sub-folders using the `MAIN_SUBFOLDERS` variable in the `makefile` (i.e., add `foo/bar` to add the sub-folder `src/foo/bar`).
+`weapi` is a lightweight backend server that provides REST API endpoints for user management.
 
-### The Library code
+The server receives HTTP requests, processes user operations, and returns JSON responses.
 
-The facil.io library source code files reside in the `lib/facil` folder.
+---
 
-It's possible to remove any unused modules. For example, if you're not writing an HTTP application, it's safe to remove the `facil/http` folder and the source files it contains. If your application doesn't need Redis connectivity, it can be removed.
+# ✨ Features
 
-However, since code footprint is usually a minor concern (and can often be fixed by adding instructions to the compiler using the makefile), it is recommended that unused code be left alone in case it would be required at a later stage.
+## User Management System
 
+The project supports:
+
+- Creating new users
+- User authentication
+- Reading user information
+- Updating user data
+- Deleting users
+- Retrieving users by ID
+
+
+## Backend Features
+
+- REST-style HTTP API
+- JSON response format
+- Lightweight C implementation
+- Thread-safe shared data handling
+- Custom user data structure
+- Fast compilation using Makefile
+- Linux/WSL compatibility
+
+---
+
+# 🛠 Technologies
+
+| Technology | Description |
+|---|---|
+| C | Main programming language |
+| facil.io | HTTP server framework |
+| GCC | Compiler |
+| Makefile | Build automation |
+| Linux / WSL | Development environment |
+| JSON | Data exchange format |
+
+---
+
+# 📁 Project Structure
+
+```text
+weapi
+│
+├── src/
+│   ├── main.c
+│   └── application source files
+│
+├── lib/
+│   └── facil/
+│       └── facil.io framework source
+│
+├── Makefile
+├── README.md
+└── ...
+```
+
+---
+
+# 🚀 How to Run
+
+## Requirements
+
+Before running the project, install:
+
+- GCC compiler
+- Make
+- Linux environment (or WSL on Windows)
+
+
+## Build
+
+Clone the repository:
+
+```bash
+git clone <repository-url>
+
+cd weapi
+```
+
+Build the project:
+
+```bash
+make
+```
+
+---
+
+## Run Server
+
+Execute:
+
+```bash
+./weapi
+```
+
+The server will start at:
+
+```
+http://127.0.0.1:3000
+```
+
+---
+
+# 🔌 API Documentation
+
+The API uses HTTP requests and returns JSON responses.
+
+---
+
+# User Routes
+
+## Create User
+
+### POST
+
+```
+/user/create
+```
+
+Creates a new user.
+
+---
+
+## User Login
+
+### POST
+
+```
+/user/login
+```
+
+Authenticates a user.
+
+---
+
+## Delete User
+
+### POST
+
+```
+/user/delete
+```
+
+Removes a user from the system.
+
+---
+
+## Update User
+
+### POST
+
+```
+/user/update
+```
+
+Updates user information.
+
+---
+
+## Read All Users
+
+### GET
+
+```
+/user/readall
+```
+
+Returns all registered users.
+
+---
+
+## Read User By ID
+
+### GET
+
+```
+/user/read-by-id
+```
+
+Returns user information using user ID.
+
+---
+
+## Search User
+
+### POST
+
+```
+/user/byid
+```
+
+Finds a user based on provided identification data.
+
+---
+
+# 📦 Data Model
+
+User information is stored using a C structure:
+
+```c
+struct user {
+    char username[25];
+    char email[255];
+    char password[65];
+    int id;
+};
+```
+
+The current implementation manages users using an internal memory-based storage system.
+
+---
+
+# 🔒 Thread Safety
+
+Since the server can handle multiple requests, shared user data is protected using mutex synchronization.
+
+This prevents race conditions during operations such as:
+
+- Creating users
+- Updating user information
+- Deleting users
+
+---
+
+# 🧪 Example Response Format
+
+API responses follow a JSON structure:
+
+```json
+{
+    "status": true,
+    "body": {
+        "msg": "Operation completed successfully"
+    }
+}
+```
+
+---
+
+# 🎯 Learning Objectives
+
+This project demonstrates practical implementation of:
+
+- Backend development using C
+- HTTP server programming
+- REST API design
+- Low-level memory management
+- Concurrent programming concepts
+- Working with external libraries
+
+---
+
+# 📜 License
+
+This project is licensed under the **MIT License**.
+
+See the `LICENSE` file for details.
+
+---
+
+# 👤 Author
+
+**Mohammad Mahdi Dehghan**
+
+Undergraduate Student in Electrical Engineering
+
+**Amirkabir University of Technology (Tehran Polytechnic)**
+
+GitHub: [@m-dehghan-eng](https://github.com/m-dehghan-eng)
