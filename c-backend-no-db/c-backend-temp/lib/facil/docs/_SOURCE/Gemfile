@@ -1,7 +1,0 @@
-source 'https://rubygems.org'
-
-gem 'iodine'
-gem 'redcarpet'
-gem 'slim'
-gem 'sass'
-gem 'rouge'
