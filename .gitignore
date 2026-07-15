@@ -1,0 +1,10 @@
+.vscode/
+.DS_Store
+build/
+tmp/
+*.o
+*.out
+.clangd
+.clang_complete
+compile_commands.json
+*.asv
